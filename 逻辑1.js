@@ -7,7 +7,7 @@ var player = 1;
 while (true) {
 
     // 获取用户输入的行数
-    var i = parseInt(prompt("请输入" + player + "号玩家要选择的行数(1-"+row[2]+")"));
+    var i = parseInt(prompt("请输入" + player + "号玩家要选择的行数("+row+")"));
 
     if (row[0]==i) {
         var n = parseInt(prompt("请输入" + player + "号玩家要取走的数量(1-"+arr[0]+")"));
@@ -17,9 +17,10 @@ while (true) {
         }
 
         arr[0] -= n;
+
         if (arr[0]==0){
-            arr.shift();
-            arr.shift(row[0]);
+            arr.splice(0,1)
+            row.splice(0,1)
         }
         
         alert("剩余牙签的数目："+arr);
@@ -39,9 +40,8 @@ while (true) {
 
         arr[1] -= n;
         if (arr[1]==0){
-            arr.shift();
-            // 从规定数组中添加或删除指定的数量 第一个参数为位置 第二个参数为删除数量 如果为0则不删除
-            arr.splice(1,1);
+            arr.splice(1,1)
+            row.splice(1,1)
         }
         
         alert("剩余牙签的数目："+arr);
@@ -61,8 +61,8 @@ while (true) {
 
         arr[2] -= n;
         if (arr[2]==0){
-            arr.shift();
-            arr.splice(2,1);
+            arr.splice(2,1)
+            row.splice(2,1)
         }
         
         alert("剩余牙签的数目："+arr);
